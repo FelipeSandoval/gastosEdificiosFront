@@ -1,0 +1,90 @@
+<app-toolbar></app-toolbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="detalles-container">
+        <h2>You Own this</h2>
+        <div class="detalles-detalles">
+            <mat-accordion>
+              <mat-expansion-panel *ngFor="let detallegastos of Data">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{detallegastos.Mes}}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Total&#58;{{detallegastos.Total}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-divider></mat-divider>
+                <mat-list-item class="detalles-gastosAdicionales" *ngFor="let gastos of detallegastos.Gastos">
+                  <p mat-line>{{gastos.Nombre}}&#32;&#58;</p>
+                  <p mat-line> {{gastos.Valor}} </p>
+                </mat-list-item>
+              </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+      </div>
+      <div class="detalles-gastos-comun">
+        <div class="detalles-gastos-comun-A mat-elevation-z8">
+          <mat-table #table [dataSource]="dataSourceA">
+            
+            <ng-container matColumnDef="descripcion">
+              <mat-header-cell *matHeaderCellDef> Detalle Resumen A</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.descripcion}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="numeroEgreso">
+              <mat-header-cell *matHeaderCellDef> N&deg;&nbsp;de Egreso </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.numeroEgreso}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="egreso">
+              <mat-header-cell *matHeaderCellDef> Egreso </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.egreso}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="saldo">
+              <mat-header-cell *matHeaderCellDef> Saldo </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.saldo}} </mat-cell>
+            </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+        </div>
+        <div class="detalles-gastos-comun-B mat-elevation-z8">
+          <mat-table #table [dataSource]="dataSourceB">
+        
+            <ng-container matColumnDef="descripcion">
+              <mat-header-cell *matHeaderCellDef> Detalle Resumen B</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.descripcion}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="numeroEgreso">
+              <mat-header-cell *matHeaderCellDef> N&deg;&nbsp;de Egreso </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.numeroEgreso}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="egreso">
+              <mat-header-cell *matHeaderCellDef> Egreso </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.egreso}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="saldo">
+              <mat-header-cell *matHeaderCellDef> Saldo </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.saldo}} </mat-cell>
+            </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+        </div>
+      </div>
+      <div class="notificaciones-container">
+        <h2>Notificaciones</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit doloribus pariatur corrupti provident, iure debitis quae neque? Numquam tempora cupiditate laboriosam deleniti ea nesciunt totam. Magnam, consequuntur odio. Suscipit, aspernatur?</p>
+      </div>
+    </div>
+  </div>
+</div>
+ 
